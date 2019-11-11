@@ -1,11 +1,15 @@
 #!groovy
 pipeline {
-    agent any
-    stages {
-        stage('build') {
-            steps {
-                sh 'docker build .'
-            }
+  agent none
+  stages {
+    stage('NPM Installs') {
+      agent {
+        docker {
+           sh 'docker build .'
         }
+      }
+      environment { HOME="." }
+      ...
     }
+  }
 }
