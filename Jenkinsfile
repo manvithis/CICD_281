@@ -3,10 +3,11 @@ pipeline {
     dockerfile {
       filename 'Dockerfile'
     }
-    environment {
-        PATH = "$PATH:/usr/local/bin/docker-compose"
-    }
+    
 
+  }
+  environment {
+        PATH = "$PATH:/usr/local/bin/docker-compose"
   }
   stages {
     stage('build') {
