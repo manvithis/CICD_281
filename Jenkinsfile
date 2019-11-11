@@ -1,12 +1,17 @@
 pipeline {
-    agent any
-    stages {
-        stage('build') {
-            steps {
-                sh 'docker-compose build web'
-                sh 'docker-compose up web'
-
-            }
-        }
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
     }
+
+  }
+  stages {
+    stage('build') {
+      steps {
+        sh 'docker-compose build web'
+        sh 'docker-compose up web'
+      }
+    }
+
+  }
 }
