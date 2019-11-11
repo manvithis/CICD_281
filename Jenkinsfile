@@ -1,11 +1,16 @@
-#!groovy
 pipeline {
-    agent any
-    stages {
-        stage('build') {
-            steps {
-                sh 'docker build .'
-            }
-        }
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
     }
+
+  }
+  stages {
+    stage('build') {
+      steps {
+        sh 'docker build .'
+      }
+    }
+
+  }
 }
